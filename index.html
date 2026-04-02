@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Diamond Dog Pet Salon & Spa — Oklahoma City</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --rose:#C4687A;
+  --rose-light:#E8A0AD;
+  --rose-pale:#F5D9DF;
+  --rose-deep:#8B3A4A;
+  --cream:#FDF6F0;
+  --warm-white:#FFFAF7;
+  --blush:#FAE8EC;
+  --brown:#3D2020;
+  --muted:#7A5F62;
+}
+body{font-family:'Jost',sans-serif;background:var(--warm-white);color:var(--brown);overflow-x:hidden}
+
+/* ── FLOATING BUTTONS ── */
+.float-wrap{
+  position:fixed;bottom:2rem;right:2rem;z-index:999;
+  display:flex;flex-direction:column;gap:0.75rem;align-items:flex-end;
+}
+.float-call{
+  display:flex;align-items:center;gap:0.6rem;
+  background:var(--rose);color:#fff;
+  padding:0.85rem 1.4rem;border-radius:100px;
+  font-family:'Jost',sans-serif;font-size:0.88rem;font-weight:500;
+  text-decoration:none;letter-spacing:0.04em;
+  box-shadow:0 4px 20px rgba(196,104,122,0.45);
+  transition:all 0.2s;
+}
+.float-call:hover{background:var(--rose-deep);transform:translateY(-2px);box-shadow:0 6px 28px rgba(196,104,122,0.5)}
+.float-call svg{flex-shrink:0}
+.float-fb{
+  display:flex;align-items:center;justify-content:center;
+  width:48px;height:48px;border-radius:50%;
+  background:#1877F2;color:#fff;
+  text-decoration:none;
+  box-shadow:0 4px 16px rgba(24,119,242,0.4);
+  transition:all 0.2s;
+}
+.float-fb:hover{background:#1558b0;transform:translateY(-2px);box-shadow:0 6px 22px rgba(24,119,242,0.5)}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.1rem 3rem;
+  background:rgba(255,250,247,0.93);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(196,104,122,0.12);
+}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--rose-deep);letter-spacing:0.04em}
+.nav-logo span{color:var(--rose);font-style:italic}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:0.82rem;font-weight:400;letter-spacing:0.06em;transition:color 0.2s}
+.nav-links a:hover{color:var(--rose)}
+.nav-actions{display:flex;gap:0.75rem;align-items:center}
+.nav-fb{
+  display:flex;align-items:center;justify-content:center;
+  width:36px;height:36px;border-radius:50%;
+  background:#1877F2;color:#fff;text-decoration:none;
+  transition:background 0.2s;
+}
+.nav-fb:hover{background:#1558b0}
+.nav-cta{
+  background:var(--rose);color:#fff;
+  padding:0.55rem 1.5rem;border-radius:100px;
+  font-size:0.8rem;font-weight:500;letter-spacing:0.05em;
+  text-decoration:none;transition:background 0.2s;
+}
+.nav-cta:hover{background:var(--rose-deep)}
+@media(max-width:700px){
+  .nav-links{display:none}
+  nav{padding:1rem 1.5rem}
+}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:stretch;padding-top:72px;
+}
+@media(max-width:768px){.hero{grid-template-columns:1fr;min-height:auto}}
+.hero-left{
+  background:var(--blush);
+  display:flex;flex-direction:column;justify-content:center;
+  padding:5rem 4rem 5rem 5rem;position:relative;overflow:hidden;
+}
+.hero-left::before{
+  content:'◆';position:absolute;right:-60px;top:20%;
+  font-size:220px;color:rgba(196,104,122,0.06);line-height:1;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--rose);margin-bottom:1.5rem;font-weight:500;
+}
+.eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--rose);display:inline-block}
+.hero-left h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.8rem,5vw,4.2rem);line-height:1.1;
+  color:var(--brown);margin-bottom:1.2rem;
+}
+.hero-left h1 em{color:var(--rose);font-style:italic}
+.hero-desc{
+  font-size:0.95rem;color:var(--muted);line-height:1.8;
+  font-weight:300;max-width:380px;margin-bottom:2.2rem;
+}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
+.btn-primary{
+  background:var(--rose);color:#fff;
+  padding:0.8rem 2rem;border-radius:100px;
+  font-size:0.82rem;font-weight:500;letter-spacing:0.05em;
+  text-decoration:none;transition:all 0.2s;display:inline-block;
+}
+.btn-primary:hover{background:var(--rose-deep);transform:translateY(-1px)}
+.btn-outline{
+  border:1.5px solid var(--rose);color:var(--rose);
+  padding:0.8rem 2rem;border-radius:100px;
+  font-size:0.82rem;font-weight:400;letter-spacing:0.05em;
+  text-decoration:none;transition:all 0.2s;display:inline-block;
+}
+.btn-outline:hover{background:var(--rose-pale)}
+.hero-stats{display:flex;gap:2rem}
+.hero-stat strong{
+  font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;
+  color:var(--rose-deep);display:block;line-height:1;
+}
+.hero-stat span{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+.hero-right{position:relative;overflow:hidden;min-height:500px}
+.hero-right img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-badge{
+  position:absolute;bottom:2rem;left:2rem;
+  background:rgba(255,250,247,0.95);border-radius:12px;
+  padding:1rem 1.2rem;backdrop-filter:blur(8px);
+  border:1px solid rgba(196,104,122,0.15);
+}
+.hero-badge .stars{color:var(--rose);font-size:0.85rem;letter-spacing:2px;display:block;margin-bottom:0.2rem}
+.hero-badge p{font-size:0.75rem;color:var(--muted);font-weight:300}
+.hero-badge p strong{color:var(--brown);font-weight:500}
+
+/* ── NOTICE BANNER ── */
+.notice{
+  background:var(--rose-pale);border-left:3px solid var(--rose);
+  padding:1rem 2rem;text-align:center;
+  font-size:0.82rem;color:var(--rose-deep);font-weight:400;
+}
+.notice strong{font-weight:500}
+
+/* ── SERVICES ── */
+.services{padding:6rem 2rem;background:var(--warm-white)}
+.section-head{text-align:center;margin-bottom:3.5rem}
+.pill-label{
+  display:inline-block;background:var(--rose-pale);color:var(--rose-deep);
+  font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;
+  padding:0.4rem 1rem;border-radius:100px;font-weight:500;margin-bottom:1rem;
+}
+.section-head h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);color:var(--brown)}
+.section-head h2 em{color:var(--rose);font-style:italic}
+.section-head p{
+  color:var(--muted);font-weight:300;font-size:0.9rem;
+  max-width:460px;margin:0.8rem auto 0;line-height:1.7;
+}
+.services-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1.5rem;max-width:1000px;margin:0 auto;
+}
+.svc{
+  background:var(--cream);border-radius:16px;
+  padding:2rem 1.6rem;
+  border:1px solid rgba(196,104,122,0.1);
+  transition:all 0.25s;cursor:default;
+}
+.svc:hover{border-color:rgba(196,104,122,0.3);transform:translateY(-3px);box-shadow:0 8px 30px rgba(196,104,122,0.1)}
+.svc-icon{
+  width:48px;height:48px;background:var(--blush);border-radius:12px;
+  display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;
+}
+.svc h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--brown);margin-bottom:0.5rem}
+.svc p{font-size:0.83rem;color:var(--muted);line-height:1.65;font-weight:300}
+.svc-note{
+  margin-top:1.1rem;font-size:0.75rem;font-style:italic;
+  color:var(--rose);letter-spacing:0.03em;
+}
+
+/* ── PHOTO STRIP ── */
+.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:0;height:340px}
+.photos div{overflow:hidden}
+.photos div img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s}
+.photos div:hover img{transform:scale(1.05)}
+@media(max-width:600px){.photos{grid-template-columns:1fr;height:auto}.photos div{height:200px}}
+
+/* ── WHY US ── */
+.why{padding:6rem 2rem;background:var(--blush)}
+.why-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+@media(max-width:700px){.why-inner{grid-template-columns:1fr;gap:2.5rem}}
+.why-img-wrap{position:relative}
+.why-img-wrap img{width:100%;border-radius:20px;display:block;aspect-ratio:4/5;object-fit:cover}
+.why-img-badge{
+  position:absolute;bottom:-1.5rem;right:-1.5rem;
+  background:var(--rose);color:#fff;
+  border-radius:14px;padding:1.2rem 1.5rem;text-align:center;
+}
+.why-img-badge strong{font-family:'Cormorant Garamond',serif;font-size:2rem;display:block;line-height:1}
+.why-img-badge span{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.85}
+.why-content .pill-label{display:inline-block}
+.why-content h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.8rem,3.5vw,2.6rem);
+  color:var(--brown);margin:0.8rem 0 1rem;line-height:1.2;
+}
+.why-content h2 em{color:var(--rose);font-style:italic}
+.why-content p{font-size:0.88rem;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:1.2rem}
+.perks{list-style:none;display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem}
+.perks li{display:flex;align-items:center;gap:0.75rem;font-size:0.85rem;color:var(--brown)}
+.perk-dot{width:8px;height:8px;border-radius:50%;background:var(--rose);flex-shrink:0}
+
+/* ── REVIEWS ── */
+.reviews{padding:6rem 2rem;background:var(--warm-white)}
+.reviews-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  gap:1.5rem;max-width:1000px;margin:0 auto;
+}
+.rev{background:var(--cream);border-radius:16px;padding:2rem;border:1px solid rgba(196,104,122,0.1)}
+.rev-stars{color:var(--rose);font-size:0.85rem;letter-spacing:2px;margin-bottom:1rem}
+.rev-quote{
+  font-family:'Cormorant Garamond',serif;font-size:1.05rem;
+  font-style:italic;color:var(--brown);line-height:1.7;margin-bottom:1rem;
+}
+.rev-author{font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--rose)}
+
+/* ── BOOKING CTA ── */
+.booking{
+  padding:6rem 2rem;background:var(--rose-deep);
+  position:relative;overflow:hidden;text-align:center;
+}
+.booking::before{
+  content:'◆ ◆ ◆';position:absolute;top:-30px;left:50%;transform:translateX(-50%);
+  font-size:180px;color:rgba(255,255,255,0.03);letter-spacing:30px;white-space:nowrap;
+}
+.booking h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,3.5rem);color:#fff;margin-bottom:0.8rem}
+.booking h2 em{font-style:italic;color:var(--rose-light)}
+.booking p{color:rgba(255,255,255,0.6);font-weight:300;font-size:0.9rem;max-width:400px;margin:0 auto 2.5rem;line-height:1.7}
+.booking-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-white{
+  background:#fff;color:var(--rose-deep);
+  padding:0.9rem 2.2rem;border-radius:100px;
+  font-family:'Jost',sans-serif;font-size:0.85rem;font-weight:500;letter-spacing:0.06em;
+  text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;
+  transition:all 0.2s;
+}
+.btn-white:hover{background:var(--cream);transform:translateY(-1px)}
+.btn-fb{
+  background:#1877F2;color:#fff;
+  padding:0.9rem 2.2rem;border-radius:100px;
+  font-family:'Jost',sans-serif;font-size:0.85rem;font-weight:500;letter-spacing:0.06em;
+  text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;
+  transition:all 0.2s;
+}
+.btn-fb:hover{background:#1558b0;transform:translateY(-1px)}
+.booking-details{display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;margin-top:3rem}
+.bd-item{font-size:0.8rem;color:rgba(255,255,255,0.5);display:flex;align-items:center;gap:0.5rem}
+.bd-dot{width:4px;height:4px;border-radius:50%;background:var(--rose-light);flex-shrink:0}
+
+/* ── HOURS ── */
+.hours{padding:4rem 2rem;background:var(--cream);display:flex;justify-content:center}
+.hours-inner{max-width:600px;width:100%;text-align:center}
+.hours-inner h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--brown);margin-bottom:2rem}
+.hours-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:0.5rem 2rem;text-align:left;max-width:380px;margin:0 auto;
+}
+.hours-day{font-size:0.82rem;color:var(--muted);padding:0.4rem 0;border-bottom:1px solid rgba(196,104,122,0.1)}
+.hours-time{font-size:0.82rem;color:var(--brown);font-weight:500;padding:0.4rem 0;border-bottom:1px solid rgba(196,104,122,0.1);text-align:right}
+.closed{color:var(--rose);font-style:italic;font-weight:400}
+
+/* ── FOOTER ── */
+footer{background:var(--brown);padding:2.5rem;text-align:center}
+footer p{font-size:0.78rem;color:rgba(253,246,240,0.35);font-weight:300;line-height:1.8}
+footer a{color:var(--rose-light);text-decoration:none;opacity:0.8}
+footer a:hover{opacity:1}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-eyebrow{animation:fadeUp 0.6s ease both}
+.hero-left h1{animation:fadeUp 0.6s 0.1s ease both}
+.hero-desc{animation:fadeUp 0.6s 0.2s ease both}
+.hero-btns{animation:fadeUp 0.6s 0.3s ease both}
+.hero-stats{animation:fadeUp 0.6s 0.4s ease both}
+@keyframes pulse{0%,100%{box-shadow:0 4px 20px rgba(196,104,122,0.45)}50%{box-shadow:0 4px 28px rgba(196,104,122,0.7)}}
+.float-call{animation:pulse 2.5s ease-in-out infinite}
+</style>
+</head>
+<body>
+
+<!-- ── FLOATING BUTTONS ── -->
+<div class="float-wrap">
+  <a class="float-call" href="tel:+14057220125">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.86 9.11 19.79 19.79 0 01.77 .5a2 2 0 012-.22h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.29a16 16 0 006.72 6.72l1.17-1.16a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    Call to Book
+  </a>
+  <a class="float-fb" href="https://www.facebook.com/diamonddogokc" target="_blank" aria-label="Facebook">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+  </a>
+</div>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo">Diamond <span>Dog</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#hours">Hours</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a class="nav-fb" href="https://www.facebook.com/diamonddogokc" target="_blank" aria-label="Facebook">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+    </a>
+    <a class="nav-cta" href="tel:+14057220125">Book Now</a>
+  </div>
+</nav>
+
+<!-- ── PRICING NOTICE ── -->
+<div class="notice" id="top">
+  <strong>Note for the business owner:</strong> Placeholder service descriptions are used below — please update with your real services, pricing & specialties before publishing.
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow"><span class="eyebrow-dot"></span>Oklahoma City's Premier Pet Grooming</p>
+    <h1>Your pup<br>deserves to<br>feel <em>fabulous</em></h1>
+    <p class="hero-desc">Luxury grooming, spa treatments & boarding — where every dog is treated like the royalty they are.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="tel:+14057220125">Call to Book</a>
+      <a class="btn-outline" href="#services">Our Services</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>4.8★</strong><span>Google Rating</span></div>
+      <div class="hero-stat"><strong>393+</strong><span>Happy Clients</span></div>
+      <div class="hero-stat"><strong>10+</strong><span>Years in OKC</span></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=900&q=80&fit=crop" alt="Happy fluffy dog"/>
+    <div class="hero-badge">
+      <span class="stars">★★★★★</span>
+      <p><strong>Loved by 393+ pet parents</strong> in OKC</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section class="services" id="services">
+  <div class="section-head">
+    <span class="pill-label">What we offer</span>
+    <h2>Grooming & <em>Spa</em> Services</h2>
+    <p>Every service is tailored to your dog's breed, coat type & personality. Contact us for current pricing.</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc">
+      <div class="svc-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C4687A" stroke-width="1.5"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+      </div>
+      <h3>Full Groom</h3>
+      <p>Bath, blow-dry, haircut, nail trim, ear cleaning & finishing spritz. Breed-specific styling available.</p>
+      <p class="svc-note">✦ Call for pricing</p>
+    </div>
+    <div class="svc">
+      <div class="svc-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C4687A" stroke-width="1.5"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 7.5 6.5 7.5h-.5C4.4 7.5 3 8.9 3 10.5s1.4 3 3 3c.38 0 .74-.07 1.07-.2"/><path d="M21 16.5c0 2.5-1.5 4.5-5 4.5-2.5 0-4.5-2-5-4.5 0-3 3-8.5 5-10 2 1.5 5 7 5 10z"/></svg>
+      </div>
+      <h3>Bath & Brush</h3>
+      <p>Premium shampoo, deep conditioning, professional blow-out & thorough brushing. No haircut.</p>
+      <p class="svc-note">✦ Call for pricing</p>
+    </div>
+    <div class="svc">
+      <div class="svc-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C4687A" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <h3>Spa Add-ons</h3>
+      <p>Teeth brushing, blueberry facial, paw balm treatment, deshedding & aromatherapy rinse.</p>
+      <p class="svc-note">✦ Call for pricing</p>
+    </div>
+    <div class="svc">
+      <div class="svc-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C4687A" stroke-width="1.5"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+      </div>
+      <h3>Nail Care</h3>
+      <p>Trim, grind & smooth — done gently with calming handling for even nervous or elderly pups.</p>
+      <p class="svc-note">✦ Call for pricing</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── PHOTO STRIP ── -->
+<div class="photos">
+  <div><img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=700&q=80&fit=crop" alt="Two happy dogs"/></div>
+  <div><img src="https://images.unsplash.com/photo-1601979031925-424e53b6caaa?w=700&q=80&fit=crop&crop=face" alt="Fluffy white dog"/></div>
+  <div><img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=700&q=80&fit=crop" alt="Dog portrait"/></div>
+</div>
+
+<!-- ── WHY US ── -->
+<section class="why" id="about">
+  <div class="why-inner">
+    <div class="why-img-wrap">
+      <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=700&q=80&fit=crop" alt="Dog being groomed with care"/>
+      <div class="why-img-badge">
+        <strong>♥</strong>
+        <span>Trusted since 2013</span>
+      </div>
+    </div>
+    <div class="why-content">
+      <span class="pill-label">Why Diamond Dog</span>
+      <h2>Groomed with <em>love</em>,<br>every single visit</h2>
+      <p>At Diamond Dog Pet Salon & Spa, our skilled groomers treat every dog like their own. We document each session so you get perfect, consistent results — every time.</p>
+      <p>All grooming is done in the open so you can see your pup is happy and safe. Many of our dogs arrive with tails wagging — that's how we know we're doing something right.</p>
+      <ul class="perks">
+        <li><span class="perk-dot"></span>Open grooming floor — you can see every dog being pampered</li>
+        <li><span class="perk-dot"></span>Detailed notes kept for every visit & style preference</li>
+        <li><span class="perk-dot"></span>Standing appointments available for regular clients</li>
+        <li><span class="perk-dot"></span>Gentle, patient handling for nervous or elderly dogs</li>
+        <li><span class="perk-dot"></span>All breeds, all sizes, all coat types welcome</li>
+      </ul>
+      <a class="btn-primary" href="https://www.facebook.com/diamonddogokc" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff" style="vertical-align:middle;margin-right:6px"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        Find Us on Facebook
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── REVIEWS ── -->
+<section class="reviews" id="reviews">
+  <div class="section-head">
+    <span class="pill-label">Client love</span>
+    <h2>What pet parents <em>say</em></h2>
+    <p>Real reviews from real dog moms and dads across Oklahoma City.</p>
+  </div>
+  <div class="reviews-grid">
+    <div class="rev">
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-quote">"My doodle has never looked more like himself — not a poodle! We now have a standing appointment every four weeks and our dogs get so excited to go."</p>
+      <p class="rev-author">— Patti M. · Google Review</p>
+    </div>
+    <div class="rev">
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-quote">"Miss Blue is 15 years old and they treated her so gently. Everyone on staff was friendly and pleasant — and she looked absolutely beautiful."</p>
+      <p class="rev-author">— Andrew B. · Google Review</p>
+    </div>
+    <div class="rev">
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-quote">"Our stylist Rylie took her time letting our pup get comfortable. Could have been traumatic — instead it was phenomenal. We will definitely be back!"</p>
+      <p class="rev-author">— Verified Google Review</p>
+    </div>
+    <div class="rev">
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-quote">"Dogs on every table, all with tails wagging. They hugged and talked to my scared boy like he was their own. We will be regulars from now on!"</p>
+      <p class="rev-author">— Verified Google Review</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── BOOKING CTA ── -->
+<section class="booking" id="book">
+  <h2>Ready for your pup's<br><em>diamond glow-up?</em></h2>
+  <p>Call us or visit our Facebook page to schedule. We love meeting new furry clients!</p>
+  <div class="booking-btns">
+    <a class="btn-white" href="tel:+14057220125">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B3A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.86 9.11 19.79 19.79 0 01.77.5a2 2 0 012-.22h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.29a16 16 0 006.72 6.72l1.17-1.16a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      (405) 722-0125
+    </a>
+    <a class="btn-fb" href="https://www.facebook.com/diamonddogokc" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      Message on Facebook
+    </a>
+  </div>
+  <div class="booking-details">
+    <span class="bd-item"><span class="bd-dot"></span>11122 N Rockwell Ave, Suite A8, OKC 73162</span>
+    <span class="bd-item"><span class="bd-dot"></span>Wheelchair accessible entrance & parking</span>
+    <span class="bd-item"><span class="bd-dot"></span>Credit, debit & mobile payments accepted</span>
+  </div>
+</section>
+
+<!-- ── HOURS ── -->
+<section class="hours" id="hours">
+  <div class="hours-inner">
+    <h3>Hours of Operation</h3>
+    <div class="hours-grid">
+      <span class="hours-day">Monday</span><span class="hours-time">7:00 AM – 3:00 PM</span>
+      <span class="hours-day">Tuesday</span><span class="hours-time">7:00 AM – 6:00 PM</span>
+      <span class="hours-day">Wednesday</span><span class="hours-time">7:00 AM – 6:00 PM</span>
+      <span class="hours-day">Thursday</span><span class="hours-time">7:00 AM – 6:00 PM</span>
+      <span class="hours-day">Friday</span><span class="hours-time">7:00 AM – 6:00 PM</span>
+      <span class="hours-day">Saturday</span><span class="hours-time">8:00 AM – 3:00 PM</span>
+      <span class="hours-day">Sunday</span><span class="hours-time closed">Closed</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>
+    © 2026 Diamond Dog Pet Salon & Spa &nbsp;·&nbsp;
+    11122 N Rockwell Ave Ste A8, Oklahoma City, OK 73162 &nbsp;·&nbsp;
+    <a href="tel:+14057220125">(405) 722-0125</a> &nbsp;·&nbsp;
+    <a href="https://www.facebook.com/diamonddogokc" target="_blank">Facebook</a>
+  </p>
+</footer>
+
+</body>
+</html>
